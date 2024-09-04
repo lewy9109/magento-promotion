@@ -3,7 +3,6 @@
 namespace KrystianLewandowski\Promotions\Model\ResourceModel;
 
 use KrystianLewandowski\Promotions\Api\Data\PromotionGroupInterface;
-use KrystianLewandowski\Promotions\Api\Data\PromotionInterface;
 use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
@@ -20,6 +19,9 @@ class PromotionGroup extends AbstractDb implements ResourceRelationInterface
         $this->_init(self::MAIN_TABLE, self::FIELD_ID);
     }
 
+    /**
+     * @throws \Exception
+     */
     protected function _afterSave(AbstractModel $object): self
     {
         parent::_afterSave($object);
@@ -48,6 +50,7 @@ class PromotionGroup extends AbstractDb implements ResourceRelationInterface
      * @param int[] $ids
      *
      * @return void
+     * @throws \Exception
      */
     protected function saveRelation(int $objectId, array $ids): void
     {
@@ -67,10 +70,14 @@ class PromotionGroup extends AbstractDb implements ResourceRelationInterface
                     ];
                 }
 
-                $conn->insertMultiple(
-                    $this->getRelationTableName(),
-                    $data
-                );
+                try {
+                    $conn->insertMultiple(
+                        $this->getRelationTableName(),
+                        $data
+                    );
+                } catch (\Exception $e) {
+                    throw new \Exception(sprintf('Probably promotion with some ids: %s not exist', implode(', ', $ids)));
+                }
             }
         }
     }
