@@ -4,12 +4,14 @@ namespace KrystianLewandowski\Promotions\Model;
 
 use KrystianLewandowski\Promotions\Api\Data\PromotionGroupInterface;
 use KrystianLewandowski\Promotions\Api\Data\PromotionInterface;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Model\AbstractModel;
 
 class Promotion extends AbstractModel implements PromotionInterface
 {
     /**
      * @return void
+     * @throws LocalizedException
      */
     public function _construct(): void
     {
@@ -86,5 +88,23 @@ class Promotion extends AbstractModel implements PromotionInterface
     public function getUpdatedAt(): ?string
     {
         return $this->getData(self::UPDATED_AT);
+    }
+
+    /**
+     * @param int[] $promotionGroupIds
+     *
+     * @return void
+     */
+    public function setPromotionGroups(array $promotionGroupIds): void
+    {
+        $this->setData(self::PROMOTION_GROUP_ID, $promotionGroupIds);
+    }
+
+    /**
+     * @return int[]
+     */
+    public function getPromotionGroups(): array
+    {
+        return $this->getData(self::PROMOTION_GROUP_ID);
     }
 }

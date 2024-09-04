@@ -30,9 +30,7 @@ class PromotionRepository implements PromotionRepositoryInterface
      */
     public function create(PromotionInterface $promotion): PromotionInterface
     {
-        $promotionModel = $this->promotionFactory->create();
-        $promotionModel->setName($promotion->getName());
-        $this->resource->save($promotionModel);
+        $this->resource->save($promotion);
 
         return $promotion;
     }
