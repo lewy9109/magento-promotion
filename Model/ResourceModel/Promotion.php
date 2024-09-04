@@ -79,8 +79,8 @@ class Promotion extends AbstractDb
         $conn = $this->getConnection();
         if ($conn) {
             $select = $conn->select()
-                ->from($this->getRelationTableName(), self::FIELD_ID)
-                ->where(sprintf('%s = %d', self::RELATION_FIELD_PROMOTION_GROUP, $objectId));
+                ->from($this->getRelationTableName(), self::RELATION_FIELD_PROMOTION_GROUP)
+                ->where(sprintf('%s = %d', self::RELATION_FIELD_PROMOTION, $objectId));
             return $conn->fetchCol($select);
         }
 
