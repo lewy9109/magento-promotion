@@ -1,0 +1,39 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="krystian_promotion_group" resource="default" engine="innodb" comment="Promotion Group Table">
+        <column xsi:type="int" name="promotion_group_id" padding="5" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="text" name="name" nullable="false" comment="Name"/>
+        <column name="created_at" xsi:type="datetime" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Created at"/>
+        <column name="updated_at" xsi:type="datetime" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Updated at"/>
+        <constraint xsi:type="primary" referenceId="KRYSTIAN_PROMOTION_GROUP_PRIMARY">
+            <column name="promotion_group_id"/>
+        </constraint>
+        <index referenceId="KRYSTIAN_PROMOTION_NAME" indexType="btree">
+            <column name="name"/>
+        </index>
+    </table>
+
+    <table name="krystian_promotion" resource="default" engine="innodb" comment="Promotion Table">
+        <column xsi:type="int" name="promotion_id" padding="5" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="text" name="name" nullable="false" comment="Name"/>
+        <column name="created_at" xsi:type="datetime" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Created at"/>
+        <column name="updated_at" xsi:type="datetime" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Updated at"/>
+        <constraint xsi:type="primary" referenceId="KRYSTIAN_PROMOTION_PRIMARY">
+            <column name="promotion_id"/>
+        </constraint>
+        <index referenceId="KRYSTIAN_PROMOTION_NAME" indexType="btree">
+            <column name="name"/>
+        </index>
+    </table>
+
+    <table name="krystian_promotion_group_relation" resource="default" engine="innodb" comment="Promotion to Group Promotion Relation Table">
+        <column xsi:type="int" name="relation_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Relation ID"/>
+        <column xsi:type="int" name="promotion_id" padding="10" unsigned="true" nullable="false" comment="Promotion ID"/>
+        <column xsi:type="int" name="promotion_group_id" padding="10" unsigned="true" nullable="false" comment="Group ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="relation_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FK_PROMOTION_ID" table="krystian_promotion_group_relation" column="promotion_id" referenceTable="krystian_promotion" referenceColumn="promotion_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="FK_GROUP_ID" table="krystian_promotion_group_relation" column="promotion_group_id" referenceTable="krystian_promotion_group" referenceColumn="promotion_group_id" onDelete="CASCADE"/>
+    </table>
+</schema>
