@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource title="Promotions" id="KrystianLewandowski_Promotions::promotion">
+                    <resource id="KrystianLewandowski_Promotions::promotion_create" title="Create Promotion" />
+                    <resource id="KrystianLewandowski_Promotions::promotion_list" title="List Promotions" />
+                    <resource id="KrystianLewandowski_Promotions::promotion_get" title="Get Promotion" />
+                    <resource id="KrystianLewandowski_Promotions::promotion_delete" title="Delete Promotion" />
+                </resource>
+                <resource title="Promotion Groups" id="KrystianLewandowski_Promotions::promotion_group">
+                    <resource id="KrystianLewandowski_Promotions::promotion_group_create" title="Create Promotion Group" />
+                    <resource id="KrystianLewandowski_Promotions::promotion_group_list" title="List Promotion Groups" />
+                    <resource id="KrystianLewandowski_Promotions::promotion_group_get" title="Get Promotion Group" />
+                    <resource id="KrystianLewandowski_Promotions::promotion_group_delete" title="Delete Promotion Group" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
