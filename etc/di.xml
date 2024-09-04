@@ -3,6 +3,6 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="KrystianLewandowski\Promotions\Api\Data\PromotionInterface" type="KrystianLewandowski\Promotions\Model\Promotion"/>
     <preference for="KrystianLewandowski\Promotions\Api\PromotionRepositoryInterface" type="KrystianLewandowski\Promotions\Model\PromotionRepository"/>
-<!--    <preference for="KrystianLewandowski\Promotions\Api\Data\PromotionGroupInterface" type="KrystianLewandowski\Promotions\Model\PromotionGroup"/>-->
-<!--    <preference for="KrystianLewandowski\Promotions\Api\PromotionsGroupRepositoryInterface" type="KrystianLewandowski\Promotions\Model\PromotionsGroupRepository"/>-->
+    <preference for="KrystianLewandowski\Promotions\Api\Data\PromotionGroupInterface" type="KrystianLewandowski\Promotions\Model\PromotionGroup"/>
+    <preference for="KrystianLewandowski\Promotions\Api\PromotionsGroupRepositoryInterface" type="KrystianLewandowski\Promotions\Model\PromotionGroupRepository"/>
 </config>

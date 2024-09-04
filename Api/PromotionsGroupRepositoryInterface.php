@@ -3,6 +3,8 @@
 namespace KrystianLewandowski\Promotions\Api;
 
 use KrystianLewandowski\Promotions\Api\Data\PromotionGroupInterface;
+use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Api\SearchResultsInterface;
 
 interface PromotionsGroupRepositoryInterface
 {
@@ -11,15 +13,26 @@ interface PromotionsGroupRepositoryInterface
      *
      * @return PromotionGroupInterface
      */
-    public function save(PromotionGroupInterface $promotionGroup): PromotionGroupInterface;
+    public function create(PromotionGroupInterface $promotionGroup): PromotionGroupInterface;
 
     /**
+     * @param int $id
+     *
      * @return void
      */
-    public function delete(): void;
+    public function delete(int $id): void;
 
     /**
-     * @return array<PromotionGroupInterface>
+     * @param int $id
+     *
+     * @return PromotionGroupInterface
      */
-    public function getList(): array;
+    public function getById(int $id): PromotionGroupInterface;
+
+    /**
+     * @param SearchCriteriaInterface|null $searchCriteria
+     *
+     * @return SearchResultsInterface
+     */
+    public function getList(?SearchCriteriaInterface $searchCriteria = null): SearchResultsInterface;
 }

@@ -66,15 +66,14 @@ class PromotionGroup extends AbstractModel implements PromotionGroupInterface
         return $this->getData(self::UPDATED_AT);
     }
 
-
-    public function setPromotionIds(array $promotionIds): PromotionGroupInterface
+    public function setPromotions(array $promotionIds): PromotionGroupInterface
     {
         $this->setData(self::PROMOTION_ID, $promotionIds);
 
         return $this;
     }
 
-    public function getPromotionIds(): array
+    public function getPromotions(): array
     {
         return $this->getData(self::PROMOTION_ID);
     }

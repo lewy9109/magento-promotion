@@ -25,4 +25,28 @@
             <resource ref="anonymous" />
         </resources>
     </route>
+    <route url="/V1/promotionGroup/create" method="POST">
+        <service class="KrystianLewandowski\Promotions\Api\PromotionsGroupRepositoryInterface" method="create"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/promotionGroups" method="GET">
+        <service class="KrystianLewandowski\Promotions\Api\PromotionsGroupRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/promotionGroup/:id" method="GET">
+        <service class="KrystianLewandowski\Promotions\Api\PromotionsGroupRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/promotionGroup/delete/:id" method="DELETE">
+        <service class="KrystianLewandowski\Promotions\Api\PromotionsGroupRepositoryInterface" method="delete"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
 </routes>

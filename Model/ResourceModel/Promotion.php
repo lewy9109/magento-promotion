@@ -6,13 +6,10 @@ use KrystianLewandowski\Promotions\Api\Data\PromotionInterface;
 use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
-class Promotion extends AbstractDb
+class Promotion extends AbstractDb implements ResourceRelationInterface
 {
     public const string MAIN_TABLE = 'krystian_promotion';
     public const string FIELD_ID = 'promotion_id';
-    public const string RELATION_PROMOTION_GROUP = 'krystian_promotion_group_relation';
-    public const string RELATION_FIELD_PROMOTION_GROUP = 'promotion_group_id';
-    public const string RELATION_FIELD_PROMOTION = 'promotion_id';
 
     /**
      * @construct
@@ -22,18 +19,31 @@ class Promotion extends AbstractDb
         $this->_init(self::MAIN_TABLE, self::FIELD_ID);
     }
 
-    protected function _afterLoad(AbstractModel $object): self
-    {
-        parent::_afterLoad($object);
-        $promotionGroupIds = $this->getRelation($object->getId());
-        $object->setData(PromotionInterface::PROMOTION_GROUP_ID, $promotionGroupIds);
-        return $this;
-    }
-
+    /**
+     * @param AbstractModel $object
+     *
+     * @return $this
+     */
     protected function _afterSave(AbstractModel $object): self
     {
         parent::_afterSave($object);
         $this->saveRelation($object->getId(), $object->getData(self::RELATION_FIELD_PROMOTION_GROUP) ?? []);
+        return $this;
+    }
+
+    /**
+     * @param AbstractModel $object
+     *
+     * @return $this
+     */
+    protected function _afterLoad(AbstractModel $object): self
+    {
+        parent::_afterLoad($object);
+        if (!$object->getId()) {
+            return $this;
+        }
+        $promotionGroupIds = $this->getRelation($object->getId());
+        $object->setData(PromotionInterface::PROMOTION_GROUP_ID, $promotionGroupIds);
         return $this;
     }
 
@@ -87,9 +97,11 @@ class Promotion extends AbstractDb
         return [];
     }
 
+    /**
+     * @return string
+     */
     public function getRelationTableName(): string
     {
         return self::RELATION_PROMOTION_GROUP;
-
     }
 }

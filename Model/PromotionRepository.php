@@ -2,7 +2,6 @@
 
 namespace KrystianLewandowski\Promotions\Model;
 
-use Exception;
 use KrystianLewandowski\Promotions\Api\Data\PromotionInterface;
 use KrystianLewandowski\Promotions\Api\PromotionRepositoryInterface;
 use KrystianLewandowski\Promotions\Model\ResourceModel\Promotion as PromotionResource;
@@ -12,6 +11,7 @@ use Magento\Framework\Api\SearchResultsInterface;
 use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchResultsInterfaceFactory;
+use Exception;
 
 class PromotionRepository implements PromotionRepositoryInterface
 {

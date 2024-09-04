@@ -4,7 +4,7 @@ namespace KrystianLewandowski\Promotions\Api\Data;
 
 interface PromotionGroupInterface
 {
-    public const ID = 'id';
+    public const ID = 'promotion_group_id';
     public const NAME = 'name';
     public const CREATED_AT = 'created_at';
     public const UPDATED_AT = 'updated_at';
@@ -65,10 +65,10 @@ interface PromotionGroupInterface
      *
      * @return self
      */
-    public function setPromotionIds(array $promotionIds): self;
+    public function setPromotions(array $promotionIds): self;
 
     /**
      * @return int[]
      */
-    public function getPromotionIds(): array;
+    public function getPromotions(): array;
 }
