@@ -4,7 +4,7 @@ namespace KrystianLewandowski\Promotions\Api\Data;
 
 interface PromotionInterface
 {
-    public const ID = 'id';
+    public const ID = 'promotion_id';
     public const NAME = 'name';
     public const CREATE_AT = 'created_at';
     public const UPDATED_AT = 'updated';

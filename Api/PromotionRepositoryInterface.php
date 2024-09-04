@@ -16,11 +16,18 @@ interface PromotionRepositoryInterface
     public function create(PromotionInterface $promotion): PromotionInterface;
 
     /**
-     * @param PromotionInterface $promotion
+     * @param int $id
      *
      * @return void
      */
-    public function delete(PromotionInterface $promotion): void;
+    public function delete(int $id): void;
+
+    /**
+     * @param int $id
+     *
+     * @return PromotionInterface
+     */
+    public function getById(int $id): PromotionInterface;
 
     /**
      * @param SearchCriteriaInterface|null $searchCriteria

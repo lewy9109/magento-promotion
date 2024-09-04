@@ -38,13 +38,30 @@ class PromotionRepository implements PromotionRepositoryInterface
     }
 
     /**
-     * @param PromotionInterface $promotion
+     * @throws Exception
+     */
+    public function getById(int $id): PromotionInterface
+    {
+        $promotion = $this->promotionFactory->create();
+        $this->resource->load($promotion, $id);
+
+        if (!$promotion->getId()) {
+            throw new Exception(__('Promotion with id %1 not found', $id));
+        }
+
+        return $promotion;
+    }
+
+    /**
+     * @param int $id
      *
      * @throws Exception
      */
-    public function delete(PromotionInterface $promotion): void
+    public function delete(int $id): void
     {
-       $this->resource->delete($promotion);
+        $promotion = $this->getById($id);
+
+        $this->resource->delete($promotion);
     }
 
     public function getList(?SearchCriteriaInterface $searchCriteria = null): SearchResultsInterface

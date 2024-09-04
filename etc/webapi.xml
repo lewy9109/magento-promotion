@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-
     <route url="/V1/promotion/create" method="POST">
         <service class="KrystianLewandowski\Promotions\Api\PromotionRepositoryInterface" method="create"/>
         <resources>
@@ -14,7 +13,13 @@
             <resource ref="anonymous" />
         </resources>
     </route>
-    <route url="/V1/promotion/delete/:promotionId" method="DELETE">
+    <route url="/V1/promotion/:id" method="GET">
+        <service class="KrystianLewandowski\Promotions\Api\PromotionRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/promotion/delete/:id" method="DELETE">
         <service class="KrystianLewandowski\Promotions\Api\PromotionRepositoryInterface" method="delete"/>
         <resources>
             <resource ref="anonymous" />
