@@ -6,15 +6,16 @@ interface PromotionGroupInterface
 {
     public const ID = 'id';
     public const NAME = 'name';
-    public const CREATE_AT = 'created_at';
+    public const CREATED_AT = 'created_at';
     public const UPDATED_AT = 'updated_at';
+    public const PROMOTION_ID = 'promotion_id';
 
     /**
      * @param mixed $id
      *
-     * @return self
+     * @return void
      */
-    public function setId($id): self;
+    public function setId($id): void;
 
     /**
      * Identifier getter
@@ -60,14 +61,14 @@ interface PromotionGroupInterface
     public function getUpdatedAt(): ?string;
 
     /**
-     * @return array
-     */
-    public function getPromotions(): array;
-
-    /**
-     * @param PromotionInterface $promotion
+     * @param int[] $promotionIds
      *
      * @return self
      */
-    public function addPromotions(PromotionInterface $promotion): self;
+    public function setPromotionIds(array $promotionIds): self;
+
+    /**
+     * @return int[]
+     */
+    public function getPromotionIds(): array;
 }

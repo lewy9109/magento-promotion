@@ -3,15 +3,16 @@
 namespace KrystianLewandowski\Promotions\Model\ResourceModel;
 
 use KrystianLewandowski\Promotions\Api\Data\PromotionInterface;
+use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 class Promotion extends AbstractDb
 {
-    public const MAIN_TABLE = 'krystian_promotion';
-    public const FIELD_ID = 'promotion_id';
-    public const RELATION_PROMOTION_GROUP = 'krystian_promotion_group_relation';
-    public const RELATION_FIELD_PROMOTION_GROUP = 'promotion_group_id';
-    public const RELATION_FIELD_PROMOTION = 'promotion_id';
+    public const string MAIN_TABLE = 'krystian_promotion';
+    public const string FIELD_ID = 'promotion_id';
+    public const string RELATION_PROMOTION_GROUP = 'krystian_promotion_group_relation';
+    public const string RELATION_FIELD_PROMOTION_GROUP = 'promotion_group_id';
+    public const string RELATION_FIELD_PROMOTION = 'promotion_id';
 
     /**
      * @construct
@@ -21,7 +22,7 @@ class Promotion extends AbstractDb
         $this->_init(self::MAIN_TABLE, self::FIELD_ID);
     }
 
-    protected function _afterLoad(\Magento\Framework\Model\AbstractModel $object): self
+    protected function _afterLoad(AbstractModel $object): self
     {
         parent::_afterLoad($object);
         $promotionGroupIds = $this->getRelation($object->getId());
@@ -29,7 +30,7 @@ class Promotion extends AbstractDb
         return $this;
     }
 
-    protected function _afterSave(\Magento\Framework\Model\AbstractModel $object): self
+    protected function _afterSave(AbstractModel $object): self
     {
         parent::_afterSave($object);
         $this->saveRelation($object->getId(), $object->getData(self::RELATION_FIELD_PROMOTION_GROUP) ?? []);

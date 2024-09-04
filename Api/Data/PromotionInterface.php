@@ -27,9 +27,9 @@ interface PromotionInterface
     /**
      * @param string $name
      *
-     * @return void
+     * @return self
      */
-    public function setName(string $name): void;
+    public function setName(string $name): self;
 
     /**
      * @return string
@@ -39,9 +39,9 @@ interface PromotionInterface
     /**
      * @param string|null $createdAt
      *
-     * @return void
+     * @return self
      */
-    public function setCreatedAt(?string $createdAt): void;
+    public function setCreatedAt(?string $createdAt): self;
 
     /**
      * @return string|null
@@ -51,9 +51,9 @@ interface PromotionInterface
     /**
      * @param string|null $updatedAt
      *
-     * @return void
+     * @return self
      */
-    public function setUpdatedAt(?string $updatedAt): void;
+    public function setUpdatedAt(?string $updatedAt): self;
 
     /**
      * @return string|null
@@ -63,9 +63,9 @@ interface PromotionInterface
     /**
      * @param int[] $promotionGroupIds
      *
-     * @return void
+     * @return self
      */
-    public function setPromotionGroups(array $promotionGroupIds): void;
+    public function setPromotionGroups(array $promotionGroupIds): self;
 
     /**
      * @return null|int[]
