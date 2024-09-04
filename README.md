@@ -1,0 +1,1 @@
+# KrystianLewandowski_Promotions module
