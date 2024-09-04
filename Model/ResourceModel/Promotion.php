@@ -12,7 +12,6 @@ class Promotion extends AbstractDb
     public const RELATION_PROMOTION_GROUP = 'krystian_promotion_group_relation';
     public const RELATION_FIELD_PROMOTION_GROUP = 'promotion_group_id';
     public const RELATION_FIELD_PROMOTION = 'promotion_id';
-    public const PROMOTION_GROUP_IDS = 'promotion_group_ids';
 
     /**
      * @construct
