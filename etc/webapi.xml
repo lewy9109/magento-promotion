@@ -4,49 +4,49 @@
     <route url="/V1/promotion/create" method="POST">
         <service class="KrystianLewandowski\Promotions\Api\PromotionRepositoryInterface" method="create"/>
         <resources>
-            <resource ref="anonymous" />
+            <resource ref="KrystianLewandowski_Promotions::promotion_create" />
         </resources>
     </route>
     <route url="/V1/promotions" method="GET">
         <service class="KrystianLewandowski\Promotions\Api\PromotionRepositoryInterface" method="getList"/>
         <resources>
-            <resource ref="anonymous" />
+            <resource ref="KrystianLewandowski_Promotions::promotion_list" />
         </resources>
     </route>
     <route url="/V1/promotion/:id" method="GET">
         <service class="KrystianLewandowski\Promotions\Api\PromotionRepositoryInterface" method="getById"/>
         <resources>
-            <resource ref="anonymous" />
+            <resource ref="KrystianLewandowski_Promotions::promotion_get" />
         </resources>
     </route>
     <route url="/V1/promotion/delete/:id" method="DELETE">
         <service class="KrystianLewandowski\Promotions\Api\PromotionRepositoryInterface" method="delete"/>
         <resources>
-            <resource ref="anonymous" />
+            <resource ref="KrystianLewandowski_Promotions::promotion_delete" />
         </resources>
     </route>
     <route url="/V1/promotionGroup/create" method="POST">
         <service class="KrystianLewandowski\Promotions\Api\PromotionsGroupRepositoryInterface" method="create"/>
         <resources>
-            <resource ref="anonymous" />
+            <resource ref="KrystianLewandowski_Promotions::promotion_group_create" />
         </resources>
     </route>
     <route url="/V1/promotionGroups" method="GET">
         <service class="KrystianLewandowski\Promotions\Api\PromotionsGroupRepositoryInterface" method="getList"/>
         <resources>
-            <resource ref="anonymous" />
+            <resource ref="KrystianLewandowski_Promotions::promotion_group_list" />
         </resources>
     </route>
     <route url="/V1/promotionGroup/:id" method="GET">
         <service class="KrystianLewandowski\Promotions\Api\PromotionsGroupRepositoryInterface" method="getById"/>
         <resources>
-            <resource ref="anonymous" />
+            <resource ref="KrystianLewandowski_Promotions::promotion_group_get" />
         </resources>
     </route>
     <route url="/V1/promotionGroup/delete/:id" method="DELETE">
         <service class="KrystianLewandowski\Promotions\Api\PromotionsGroupRepositoryInterface" method="delete"/>
         <resources>
-            <resource ref="anonymous" />
+            <resource ref="KrystianLewandowski_Promotions::promotion_group_delete" />
         </resources>
     </route>
 </routes>
