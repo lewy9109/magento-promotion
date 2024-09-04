@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "7167eadd-7040-4231-8c15-bd2f121bed8f",
+		"name": "Promotions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21842636",
+		"_collection_link": "https://planetary-spaceship-882228.postman.co/workspace/My-Workspace~e795cf55-7df1-4e4c-886b-bb13394b0288/collection/21842636-7167eadd-7040-4231-8c15-bd2f121bed8f?action=share&source=collection_link&creator=21842636"
+	},
+	"item": [
+		{
+			"name": "Get Promotion Groups",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer kwX2bwjG23bHY9kzCk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mystore.test/rest/V1/promotionGroups?searchCriteria[pageSize]=30&searchCriteria[currentPage]=1",
+					"protocol": "https",
+					"host": [
+						"mystore",
+						"test"
+					],
+					"path": [
+						"rest",
+						"V1",
+						"promotionGroups"
+					],
+					"query": [
+						{
+							"key": "searchCriteria[pageSize]",
+							"value": "30"
+						},
+						{
+							"key": "searchCriteria[currentPage]",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Promotion Group By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer kwX2bwjG23bHY9kzCk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://mystore.test/rest/V1/promotionGroup/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Promotion Group By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer kwX2bwjG23bHY9kzCk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://mystore.test/rest/V1/promotionGroup/delete/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Promotions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mystore.test/rest/V1/promotions?searchCriteria[pageSize]=30&searchCriteria[currentPage]=1",
+					"protocol": "https",
+					"host": [
+						"mystore",
+						"test"
+					],
+					"path": [
+						"rest",
+						"V1",
+						"promotions"
+					],
+					"query": [
+						{
+							"key": "searchCriteria[pageSize]",
+							"value": "30"
+						},
+						{
+							"key": "searchCriteria[currentPage]",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Promotion By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://mystore.test/rest/V1/promotion/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Promotion By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://mystore.test/rest/V1/promotion/delete\\1"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Promotions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"promotion\":{\n        \"name\": \"Name Promotion\",\n        \"promotionGroups\": [2,3]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://mystore.test/rest/V1/promotion/create"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Promotions Groups",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"promotionGroup\":{\n        \"name\": \"Name Promotion Group\",\n        \"promotions\": [2,3,33]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://mystore.test/rest/V1/promotionGroup/create"
+			},
+			"response": []
+		}
+	]
+}
