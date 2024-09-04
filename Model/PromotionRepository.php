@@ -7,25 +7,20 @@ use KrystianLewandowski\Promotions\Api\Data\PromotionInterface;
 use KrystianLewandowski\Promotions\Api\PromotionRepositoryInterface;
 use KrystianLewandowski\Promotions\Model\ResourceModel\Promotion as PromotionResource;
 use KrystianLewandowski\Promotions\Api\Data\PromotionInterfaceFactory;
-use KrystianLewandowski\Promotions\Model\ResourceModel\Promotion\CollectionFactory as PromoCollectionFactory;
 use KrystianLewandowski\Promotions\Model\ResourceModel\Promotion\Collection;
+use Magento\Framework\Api\SearchResultsInterface;
 use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchResultsInterfaceFactory;
 
 class PromotionRepository implements PromotionRepositoryInterface
 {
-
-
     public function __construct(
         private PromotionResource $resource,
         private PromotionInterfaceFactory $promotionFactory,
         private SearchResultsInterfaceFactory $searchResultsFactory,
-        private PromoCollectionFactory $collectionFactory, //to remove ???
     ) {
-
     }
-
 
     /**
      * @param PromotionInterface $promotion
@@ -35,11 +30,8 @@ class PromotionRepository implements PromotionRepositoryInterface
      */
     public function create(PromotionInterface $promotion): PromotionInterface
     {
-
         $promotionModel = $this->promotionFactory->create();
         $promotionModel->setName($promotion->getName());
-
-
         $this->resource->save($promotionModel);
 
         return $promotion;
@@ -55,7 +47,7 @@ class PromotionRepository implements PromotionRepositoryInterface
        $this->resource->delete($promotion);
     }
 
-    public function getList(?SearchCriteriaInterface $searchCriteria = null): \Magento\Framework\Api\SearchResults
+    public function getList(?SearchCriteriaInterface $searchCriteria = null): SearchResultsInterface
     {
         /**
          * @var Collection $collection
@@ -68,7 +60,7 @@ class PromotionRepository implements PromotionRepositoryInterface
         }
 
         /**
-         * @var \Magento\Framework\Api\SearchResults $searchResults
+         * @var SearchResultsInterface $searchResults
          */
         $searchResults = $this->searchResultsFactory->create();
 
