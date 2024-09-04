@@ -4,6 +4,7 @@ namespace KrystianLewandowski\Promotions\Api;
 
 use KrystianLewandowski\Promotions\Api\Data\PromotionInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Api\SearchResults;
 use Magento\Framework\Api\SearchResultsInterface;
 
 interface PromotionRepositoryInterface
@@ -23,7 +24,9 @@ interface PromotionRepositoryInterface
     public function delete(PromotionInterface $promotion): void;
 
     /**
-     * @return array
+     * @param SearchCriteriaInterface|null $searchCriteria
+     *
+     * @return \Magento\Framework\Api\SearchResults
      */
-    public function getList( ): array;
+    public function getList(?SearchCriteriaInterface $searchCriteria = null): \Magento\Framework\Api\SearchResults;
 }

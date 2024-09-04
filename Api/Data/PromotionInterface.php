@@ -12,6 +12,7 @@ interface PromotionInterface
     /**
      * @param mixed $id
      *
+     * @return void
      */
     public function setId($id): void;
 
