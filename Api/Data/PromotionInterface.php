@@ -7,7 +7,7 @@ interface PromotionInterface
     public const ID = 'promotion_id';
     public const NAME = 'name';
     public const CREATE_AT = 'created_at';
-    public const UPDATED_AT = 'updated';
+    public const UPDATED_AT = 'updated_at';
     public const PROMOTION_GROUP_ID = 'promotion_group_id';
 
     /**
@@ -60,7 +60,6 @@ interface PromotionInterface
      */
     public function getUpdatedAt(): ?string;
 
-
     /**
      * @param int[] $promotionGroupIds
      *
@@ -69,7 +68,7 @@ interface PromotionInterface
     public function setPromotionGroups(array $promotionGroupIds): void;
 
     /**
-     * @return int[]
+     * @return null|int[]
      */
-    public function getPromotionGroups(): array;
+    public function getPromotionGroups(): ?array;
 }

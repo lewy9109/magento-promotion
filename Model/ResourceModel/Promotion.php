@@ -2,6 +2,7 @@
 
 namespace KrystianLewandowski\Promotions\Model\ResourceModel;
 
+use KrystianLewandowski\Promotions\Api\Data\PromotionInterface;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 class Promotion extends AbstractDb
@@ -23,10 +24,9 @@ class Promotion extends AbstractDb
 
     protected function _afterLoad(\Magento\Framework\Model\AbstractModel $object): self
     {
-        //TODO: Implement _afterLoad() method.
         parent::_afterLoad($object);
         $promotionGroupIds = $this->getRelation($object->getId());
-        $object->setData(self::PROMOTION_GROUP_IDS, $promotionGroupIds);
+        $object->setData(PromotionInterface::PROMOTION_GROUP_ID, $promotionGroupIds);
         return $this;
     }
 

@@ -101,9 +101,9 @@ class Promotion extends AbstractModel implements PromotionInterface
     }
 
     /**
-     * @return int[]
+     * @return int|null[]
      */
-    public function getPromotionGroups(): array
+    public function getPromotionGroups(): ?array
     {
         return $this->getData(self::PROMOTION_GROUP_ID);
     }
