@@ -91,7 +91,7 @@ class PromotionGroupRepository implements PromotionsGroupRepositoryInterface
         if ($searchCriteria) {
             $searchResults->setSearchCriteria($searchCriteria);
         }
-        $searchResults->setItems($collection->getData());
+        $searchResults->setItems($collection->getFormattedData());
         $searchResults->setTotalCount($collection->getSize());
 
         return $searchResults;
