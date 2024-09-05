@@ -2,7 +2,7 @@
 
 ## Installation
 
-Get zip file from github and extract it to `app/code/` directory
+Get zip file from github and extract it to `app/code/KrystianLewandowski/Promotions` directory
 
 `bin/magento setup:upgrade` <br> 
 `bin/magento setup:di:compile` <br>
