@@ -4,7 +4,8 @@
   "description": "N/A",
   "type": "magento2-module",
   "require": {
-    "magento/framework": "*"
+    "magento/framework": "103.0.0",
+    "php": "8.2"
   },
   "license": [
     "Open Software License (OSL)"

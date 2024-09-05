@@ -15,6 +15,11 @@ use Magento\Framework\Exception\AlreadyExistsException;
 
 class PromotionGroupRepository implements PromotionsGroupRepositoryInterface
 {
+    /**
+     * @param PromotionGroupResource         $resource
+     * @param PromotionGroupInterfaceFactory $promotionGroupFactory
+     * @param SearchResultsInterfaceFactory  $searchResultsFactory
+     */
     public function __construct(
         private PromotionGroupResource         $resource,
         private PromotionGroupInterfaceFactory $promotionGroupFactory,

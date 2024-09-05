@@ -9,8 +9,15 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 class Promotion extends AbstractDb implements ResourceRelationInterface
 {
-    public const string MAIN_TABLE = 'krystian_promotion';
-    public const string FIELD_ID = 'promotion_id';
+    /**
+     * @return string
+     */
+    public const MAIN_TABLE = 'krystian_promotion';
+
+    /**
+     * @return string
+     */
+    public const FIELD_ID = 'promotion_id';
 
     /**
      * @construct

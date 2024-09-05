@@ -4,10 +4,29 @@ namespace KrystianLewandowski\Promotions\Api\Data;
 
 interface PromotionInterface
 {
+    /**
+     * @return string
+     */
     public const ID = 'promotion_id';
+
+    /**
+     * @return string
+     */
     public const NAME = 'name';
+
+    /**
+     * @return string
+     */
     public const CREATE_AT = 'created_at';
+
+    /**
+     * @return string
+     */
     public const UPDATED_AT = 'updated_at';
+
+    /**
+     * @return string
+     */
     public const PROMOTION_GROUP_ID = 'promotion_group_id';
 
     /**

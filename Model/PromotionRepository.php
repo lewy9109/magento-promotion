@@ -15,6 +15,11 @@ use Exception;
 
 class PromotionRepository implements PromotionRepositoryInterface
 {
+    /**
+     * @param PromotionResource             $resource
+     * @param PromotionInterfaceFactory     $promotionFactory
+     * @param SearchResultsInterfaceFactory $searchResultsFactory
+     */
     public function __construct(
         private PromotionResource $resource,
         private PromotionInterfaceFactory $promotionFactory,
@@ -62,6 +67,11 @@ class PromotionRepository implements PromotionRepositoryInterface
         $this->resource->delete($promotion);
     }
 
+    /**
+     * @param SearchCriteriaInterface|null $searchCriteria
+     *
+     * @return SearchResultsInterface
+     */
     public function getList(?SearchCriteriaInterface $searchCriteria = null): SearchResultsInterface
     {
         /**

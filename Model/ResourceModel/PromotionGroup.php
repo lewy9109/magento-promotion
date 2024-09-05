@@ -8,8 +8,15 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 class PromotionGroup extends AbstractDb implements ResourceRelationInterface
 {
-    public const string MAIN_TABLE = 'krystian_promotion_group';
-    public const string FIELD_ID = 'promotion_group_id';
+    /**
+     * @return string
+     */
+    public const MAIN_TABLE = 'krystian_promotion_group';
+
+    /**
+     * @return string
+     */
+    public const FIELD_ID = 'promotion_group_id';
 
     /**
      * @return void
